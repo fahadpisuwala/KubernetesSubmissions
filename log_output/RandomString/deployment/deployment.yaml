@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: randomstring-deployment
+  labels:
+    app: randomstring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: randomstring
+  template:
+    metadata:
+      labels:
+        app: randomstring
+    spec:
+      containers:
+      - name: randomstring
+        image: rebel3232/randomstring:latest
+        ports:
+        - containerPort: 3000
